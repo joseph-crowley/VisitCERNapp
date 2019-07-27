@@ -2,11 +2,14 @@ package com.example.visitcern
 
 import androidx.fragment.app.FragmentActivity
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.gms.maps.CameraUpdateFactory
+import android.util.Log
+import androidx.core.app.ActivityCompat
+
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -19,6 +22,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
     private var mMap: GoogleMap? = null
     private var btn: Button? = null
     private var marker: Marker? = null
+    private lateinit var locMan: VisitCernLocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,29 +49,48 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val globe = LatLng(46.233970, 6.055727)
-        mMap!!.addMarker(MarkerOptions().position(globe))
-        mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(globe, 16.0f))
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1);
+        locMan = VisitCernLocationManager(this, mMap)
 
         // Setting a custom info window adapter for the google map
         val markerInfoWindowAdapter = InfoWindowAdapter(applicationContext)
         googleMap.setInfoWindowAdapter(markerInfoWindowAdapter)
+        googleMap.setOnInfoWindowClickListener(this)
+
+        addMarkers()
 
         // Adding and showing marker when the map is touched
 
-        mMap!!.clear()
-        val markerOptions = MarkerOptions()
-        markerOptions.position(globe)
-        mMap!!.animateCamera(CameraUpdateFactory.newLatLng(globe))
-        marker = mMap!!.addMarker(markerOptions)
-        // marker.showInfoWindow();
+//        mMap!!.clear()
+//        val markerOptions = MarkerOptions()
+//        markerOptions.position(globe)
+//        marker = mMap!!.addMarker(markerOptions)
 
-        googleMap.setOnInfoWindowClickListener(this)
+        locMan.requestLocationUpdates()
+    }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        Log.d("PERMISSION RESULT", "Permission result recieved")
+        when (requestCode) {
+            1 -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d("PERMISSION RESULT", "Location permission granted")
+                } else {
+                }
+                return
+            }
+        }
     }
 
     override fun onInfoWindowClick(marker: Marker) {
         Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addMarkers() {
+        val globe = LatLng(46.233970, 6.055727)
+        if (mMap != null) {
+            mMap!!.addMarker(MarkerOptions().position(globe))
+        }
     }
 }

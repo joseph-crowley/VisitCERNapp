@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Layout</string>
+    <string name="manual">Welcome to explore CERN! With this app you can wonder around CERN an learn about the buildings
+        and have a seek inside. The other option is to attend a quiz while walkin around the campus. While answering to physics
+        related questions you can gain points and compete witho other visitors!        xmlns:app="http://schemas.android.com/apk/res-auto"
+    </string>
+</resources>

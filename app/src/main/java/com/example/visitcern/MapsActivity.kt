@@ -38,6 +38,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Cern and move the camera
         val cern = LatLng(46.233832398, 6.053166454)
         mMap.addMarker(MarkerOptions().position(cern).title("Marker in CERN!"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cern))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cern, 12.0f))
     }
 }

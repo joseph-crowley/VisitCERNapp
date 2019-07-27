@@ -11,7 +11,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn"
-            android:text="Close"/>
+            android:text="Hide Information"/>
 
     <fragment
             android:id="@+id/map"

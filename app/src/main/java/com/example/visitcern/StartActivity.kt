@@ -14,17 +14,16 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        setSupportActionBar(toolbar)
-        }
-
-        fun randomMe(view: View) {
-            // Create an Intent to start the second activity
-            val mapact = Intent(this, MapsActivity::class.java)
-
-            // Start the new activity.
-            startActivity(mapact)
-
-        }
     }
+
+    fun randomMe(view: View) {
+        // Create an Intent to start the second activity
+        val mapact = Intent(this, MapsActivity::class.java)
+
+        // Start the new activity.
+        startActivity(mapact)
+
+    }
+}
 
 

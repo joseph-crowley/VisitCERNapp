@@ -13,7 +13,7 @@ import com.google.android.gms.maps.model.*
 class VisitCernMapHandler {
     private var map: GoogleMap? = null
     private var marker: Marker? = null
-    private var markerOptions = MarkerOptions().position(LatLng(0.0, 0.0))
+    private var markerOptions = MarkerOptions().position(LatLng(0.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.pin))
 
     constructor(map: GoogleMap?) {
         this.map = map

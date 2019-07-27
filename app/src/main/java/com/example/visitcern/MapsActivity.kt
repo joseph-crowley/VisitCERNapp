@@ -9,6 +9,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.Marker
+
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -37,7 +40,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Add a marker in Cern and move the camera
         val cern = LatLng(46.233832398, 6.053166454)
-        mMap.addMarker(MarkerOptions().position(cern).title("Marker in CERN!"))
+        val cernMarker = mMap.addMarker(
+            MarkerOptions()
+                .position(cern)
+                .title("here is cern")
+                .snippet("very long description of cern")
+        )
+        cernMarker.showInfoWindow()
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cern, 12.0f))
+
+
     }
 }

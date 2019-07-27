@@ -16,7 +16,7 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
     }
 
-    fun randomMe(view: View) {
+    fun quizstart(view: View) {
         // Create an Intent to start the second activity
         val mapact = Intent(this, MapsActivity::class.java)
 

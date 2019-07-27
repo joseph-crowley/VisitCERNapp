@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    //Theme
+    <color name="cernBlue">#0033A0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="cernBlueLight">#4178c5</color>
 </resources>

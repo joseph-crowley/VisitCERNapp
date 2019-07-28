@@ -20,7 +20,7 @@ class VisitCernLocationManager {
     private var location: Location? = null
     private var locationManager: LocationManager? = null
     private lateinit var mapHandler: VisitCernMapHandler
-    private var following = true;
+    private var following = false;
 
     constructor(context: Context, map: GoogleMap?) {
         this.context = context

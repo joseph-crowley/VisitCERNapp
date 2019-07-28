@@ -5,7 +5,6 @@
         and have a seek inside. The other option is to attend a quiz while walkin around the campus. While answering to
         physics
         related questions you can gain points and compete witho other visitors!
-        xmlns:app="http://schemas.android.com/apk/res-auto"
     </string>
     <string name="title_activity_start">StartActivity</string>
 </resources>

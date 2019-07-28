@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.util.Log
+import android.view.View
 import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.GoogleMap
@@ -16,6 +17,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
@@ -30,6 +33,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
 
         btn = findViewById(R.id.btn)
         btn!!.setOnClickListener { marker!!.hideInfoWindow() }
+
+        val locateButton = findViewById<FloatingActionButton>(R.id.locateButton)
+        locateButton.setOnClickListener( { locate() } )
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -91,6 +97,15 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
         val globe = LatLng(46.233970, 6.055727)
         if (mMap != null) {
             mMap!!.addMarker(MarkerOptions().position(globe))
+        }
+    }
+
+    fun locate() {
+        Log.d("MAPS ACTIVITY", "Locate pressed")
+        val currentLocation = locMan.getCurrentLocation()
+        if (currentLocation != null) {
+            Log.d("MAPS ACTIVITY", "Locating")
+            locMan.moveCamera(currentLocation)
         }
     }
 }

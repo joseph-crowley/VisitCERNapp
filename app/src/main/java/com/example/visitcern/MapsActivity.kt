@@ -99,6 +99,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
         val reception = LatLng(46.233036, 6.055734)
         val wanderingTheImmeasurable = LatLng(46.233682, 6.056147)
         val atlas = LatLng(46.235829, 6.055338)
+        val auditorium = LatLng(46.231429, 6.054261)
 
         if (mMap != null) {
             mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet("27 metres high and 40 metres in diameter, it's about the size of the dome of Saint Peter's in Rome! A unique visual landmark by day and by night, the Globe of Science and Innovation is a symbol of Planet Earth. It is CERN's outreach tool for its work in the fields of science, particle physics, leading-edge technologies and their applications in everyday life.\n" +
@@ -129,6 +130,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
                     "\n" +
                     "ATLAS physicists test the predictions of the Standard Model, which encapsulates our current understanding of what the building blocks of matter are and how they interact. These studies can lead to ground-breaking discoveries, such as that of the Higgs boson, physics beyond the Standard Model and the development of new theories to better describe our universe.\n" +
                     "\n"))
+            mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet("In 2012, physicists eagerly waited overnight to enter the Main Auditorium to hear the announcement of the discovery of the Higgs Boson. Peter Higgs himself sat in this auditorium to hear the confirmation of his theory which gave him the Nobel Prize in Physics in 2013.\n\nToday, the auditorium is home to the CERN Summer Student Lecture Program, where students from all disciplines learn about the impressive scientific advancements that are happening at CERN. Lectures in particle physics, computation, engineering, and mathematics provide an accessible but detailed knowledge of the work done at CERN."))
 
         }
     }

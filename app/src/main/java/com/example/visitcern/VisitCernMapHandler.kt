@@ -31,7 +31,7 @@ class VisitCernMapHandler {
         if (map != null) {
             animateMarker(newLatLng)
             map!!.moveCamera(CameraUpdateFactory.newLatLng(newLatLng))
-            map!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
+            map!!.animateCamera(CameraUpdateFactory.zoomTo(17f))
         }
     }
 

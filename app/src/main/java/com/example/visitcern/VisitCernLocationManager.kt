@@ -20,7 +20,7 @@ class VisitCernLocationManager {
     private var location: Location? = null
     private var locationManager: LocationManager? = null
     private lateinit var mapHandler: VisitCernMapHandler
-    private var following = false;
+    private var following = true;
 
     constructor(context: Context, map: GoogleMap?) {
         this.context = context
@@ -123,6 +123,10 @@ class VisitCernLocationManager {
     fun moveCamera(location: Location) {
         val latLng = LatLng(location.latitude, location.longitude)
         mapHandler.follow(latLng)
+    }
+
+    fun setFollow(follow: Boolean) {
+        this.following = follow
     }
 }
 

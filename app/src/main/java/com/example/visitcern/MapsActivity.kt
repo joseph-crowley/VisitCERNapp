@@ -8,10 +8,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.util.Log
+import android.view.DragEvent
 import android.view.View
 import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -62,6 +64,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
         val markerInfoWindowAdapter = InfoWindowAdapter(applicationContext)
         googleMap.setInfoWindowAdapter(markerInfoWindowAdapter)
         googleMap.setOnInfoWindowClickListener(this)
+        googleMap.setOnMapClickListener( { unfollow() } )
 
         addMarkers()
 
@@ -141,6 +144,12 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
         if (currentLocation != null) {
             Log.d("MAPS ACTIVITY", "Locating")
             locMan.moveCamera(currentLocation)
+            locMan.setFollow(true)
         }
+    }
+
+    fun unfollow() {
+        Log.d("MAPS ACTIVITY", "Unfollowing")
+        locMan.setFollow(false)
     }
 }

@@ -29,8 +29,9 @@ class VisitCernMapHandler {
 
     fun follow(newLatLng: LatLng) {
         if (map != null) {
+            animateMarker(newLatLng)
             map!!.moveCamera(CameraUpdateFactory.newLatLng(newLatLng))
-            map!!.moveCamera(CameraUpdateFactory.zoomTo(15f))
+            map!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
         }
     }
 
@@ -46,18 +47,20 @@ class VisitCernMapHandler {
 
         if (map != null && marker != null) {
             val handler = Handler()
-            val start = SystemClock.uptimeMillis()
+            val startTime = SystemClock.uptimeMillis()
             val proj = map.getProjection()
             val startPoint = proj.toScreenLocation(marker.position)
             val startLatLng = proj.fromScreenLocation(startPoint)
+
             val duration: Long = 500
 
             val interpolator = LinearInterpolator()
 
             handler.post(object : Runnable {
                 override fun run() {
-                    val elapsed = SystemClock.uptimeMillis() - start
-                    val t = interpolator.getInterpolation(elapsed.toFloat() / duration)
+                    val elapsedTime = SystemClock.uptimeMillis() - startTime
+                    val t = Math.min(1.0f, interpolator.getInterpolation(elapsedTime.toFloat() / duration))
+
                     val lng = t * newLatLng.longitude + (1 - t) * startLatLng.longitude
                     val lat = t * newLatLng.latitude + (1 - t) * startLatLng.latitude
 

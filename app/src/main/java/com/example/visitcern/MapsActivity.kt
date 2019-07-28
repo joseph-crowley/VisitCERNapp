@@ -104,7 +104,18 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
                     "The free exhibition is for visitors to confront the great questions of contemporary physics, currently being explored by the CERN via the LHC and other accelerators.\n" +
                     "Dive into the fascinating world of particles.\n"))
             mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet("Drinks, food, or table tennis; Restaurant 1 has it all. Located in Building 501, Restaurant 1 serves as both a social hub and a place to eat. Open from Monday to Friday from 6h00 until 24h00, meals are served from 11h30 to 14h15 and from 18h to 21h30. It is also open on Saturdays and Sundays from 7h until 22h00 and meals are served from 11h30 to 14h00 and from 18h to 20h00. It proposes different menus from CHF 8.50 to CHF 16.00, including vegetarian options. If you’re not hungry, you will certainly find people enjoying a drink or playing table tennis, table football or cards. In the evenings, there is often music and other events taking place. If you want to relax from work, Restaurant 1 is the place to be."))
-            mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet("Welcome to CERN Meyrin campus. From this building you can find the reception, CERN shop and Microcosm exhibition. Our lovely reception is happy to help you with all kinds of questions and you can also get the visitor pass from here!\n"))
+            mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet("Welcome to CERN Meyrin campus. From this building you can find the reception, CERN shop and Microcosm exhibition. Our lovely reception is happy to help you with all kinds of questions and you can also get the visitor pass from here!\n Access and opening hours:\n" +
+                    "Reception\n" +
+                    "Monday - Friday from 08:00 to 17:45\n" +
+                    "Saturday from 08:30 to 17:15\n" +
+                    "Phone number: +41 (0)22 767 76 76\n" +
+                    "Internal number: 78484\n" +
+                    "CERN shop\n" +
+                    "Monday - Friday from 08:15 to 17:45\n" +
+                    "Saturday from 09:00 to 17:15\n" +
+                    "Microcosm exhibition\n" +
+                    "Monday - Friday from 08:30 to 17:30\n" +
+                    "Saturday from 09:00 to 17:00\n"))
         }
     }
 

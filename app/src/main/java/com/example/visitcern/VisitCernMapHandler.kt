@@ -59,7 +59,8 @@ class VisitCernMapHandler {
             handler.post(object : Runnable {
                 override fun run() {
                     val elapsedTime = SystemClock.uptimeMillis() - startTime
-                    val t = interpolator.getInterpolation(elapsedTime.toFloat() / duration)
+                    val t = Math.min(1.0f, interpolator.getInterpolation(elapsedTime.toFloat() / duration))
+
                     val lng = t * newLatLng.longitude + (1 - t) * startLatLng.longitude
                     val lat = t * newLatLng.latitude + (1 - t) * startLatLng.latitude
 

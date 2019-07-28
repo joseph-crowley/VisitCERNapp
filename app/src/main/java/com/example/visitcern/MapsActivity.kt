@@ -95,8 +95,14 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
 
     private fun addMarkers() {
         val globe = LatLng(46.233970, 6.055727)
+        val r1 = LatLng(46.230986, 6.054607)
+
         if (mMap != null) {
-            mMap!!.addMarker(MarkerOptions().position(globe))
+            mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet("27 metres high and 40 metres in diameter, it's about the size of the dome of Saint Peter's in Rome! A unique visual landmark by day and by night, the Globe of Science and Innovation is a symbol of Planet Earth. It is CERN's outreach tool for its work in the fields of science, particle physics, leading-edge technologies and their applications in everyday life.\n" +
+                    "On the ground floor of the Globe, the \"Universe of Particles\" exhibition takes the visitor on a journey deep into the world of particles and back to the Big Bang.\n" +
+                    "The free exhibition is for visitors to confront the great questions of contemporary physics, currently being explored by the CERN via the LHC and other accelerators.\n" +
+                    "Dive into the fascinating world of particles.\n"))
+            mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet("Drinks, food, or table tennis; Restaurant 1 has it all. Located in Building 501, Restaurant 1 serves as both a social hub and a place to eat. Open from Monday to Friday from 6h00 until 24h00, meals are served from 11h30 to 14h15 and from 18h to 21h30. It is also open on Saturdays and Sundays from 7h until 22h00 and meals are served from 11h30 to 14h00 and from 18h to 20h00. It proposes different menus from CHF 8.50 to CHF 16.00, including vegetarian options. If you’re not hungry, you will certainly find people enjoying a drink or playing table tennis, table football or cards. In the evenings, there is often music and other events taking place. If you want to relax from work, Restaurant 1 is the place to be."))
         }
     }
 

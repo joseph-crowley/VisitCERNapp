@@ -27,6 +27,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorAccent"
-            android:text="Gir "/>
+            android:text="Gr "/>
 
 </LinearLayout>

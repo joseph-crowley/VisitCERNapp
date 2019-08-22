@@ -2,6 +2,7 @@ package com.example.visitcern
 
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.media.Image
 import android.net.Uri
 import android.util.Log
@@ -37,14 +38,26 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
 
         val tvGir = v.findViewById<View>(R.id.tvgir) as TextView
         val tvDetails = v.findViewById<View>(R.id.tvd) as TextView
-        var image = v.findViewById<View>(R.id.image) as ImageView
-        //val uri = Uri.parse("drawable/globe.jpg")
-        //image.setImageURI(uri)
-        //Log.d(uri.toString(), "")
-        // TextView tvLng = (TextView) v.findViewById(R.id.tv_lng);
+        var imageView = v.findViewById<View>(R.id.image) as ImageView
+//        var tag = marker.tag
+//        var resourceId = 0
+//        if (tag is String) {
+//            resourceId = context.resources.getIdentifier("atlas.jpg", "drawable", context.packageName)
+//        }
+//        resourceId = context.resources.getIdentifier("atlas.jpg", "drawable", context.packageName)
+//
+////        val drawable = context.resources.getDrawable(resourceId, null)
+
+        var img
+        when (title) {
+            "Globe"-> img = R.drawable.Globe
+        }
+        imageView.setImageResource(img)
+//        imageView.setImageResource()
+//        imageView.setImageResource(0)
         tvGir.text = title
         tvDetails.text = snippet
-        //tvLng.setText("Longitude:"+ latLng.longitude);
+
         return v
     }
 

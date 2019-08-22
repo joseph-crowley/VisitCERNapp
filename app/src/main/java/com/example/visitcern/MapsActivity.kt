@@ -118,12 +118,18 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
             val ATLAS_description = getResources().getString(R.string.ATLAS_description)
             val auditorium_description = getResources().getString(R.string.auditorium_description)
 
-            mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet(globe_description))
-            mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet(r1_description))
-            mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet(reception_description))
-            mMap!!.addMarker(MarkerOptions().position(wanderingTheImmeasurable).title("Wandering the Immeasurable").snippet(immeasurable_description))
-            mMap!!.addMarker(MarkerOptions().position(atlas).title("ATLAS Experiment").snippet(ATLAS_description))
-            mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet(auditorium_description))
+            var globe = mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet(globe_description))
+            globe.tag = "globe.jpg"
+            var r1 = mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet(r1_description))
+            r1.tag = "restaurant1.jpg"
+            var reception = mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet(reception_description))
+            reception.tag = "reception.jpg"
+            var immeasurable = mMap!!.addMarker(MarkerOptions().position(wanderingTheImmeasurable).title("Wandering the Immeasurable").snippet(immeasurable_description))
+            immeasurable.tag = "immeasurable.jpg"
+            var atlas = mMap!!.addMarker(MarkerOptions().position(atlas).title("ATLAS Experiment").snippet(ATLAS_description))
+            atlas.tag = "atlas.jpg"
+            var auditorium = mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet(auditorium_description))
+            auditorium.tag = "auditorium.jpg"
         }
     }
 

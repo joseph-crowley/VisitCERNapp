@@ -62,7 +62,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1);
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         locMan = VisitCernLocationManager(this, mMap)
 
         // Setting a custom info window adapter for the google map
@@ -117,12 +117,12 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
             val immeasurable_description = getResources().getString(R.string.immeasurable_description)
             val ATLAS_description = getResources().getString(R.string.ATLAS_description)
             val auditorium_description = getResources().getString(R.string.auditorium_description)
+
             mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet(globe_description))
             mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet(r1_description))
             mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet(reception_description))
             mMap!!.addMarker(MarkerOptions().position(wanderingTheImmeasurable).title("Wandering the Immeasurable").snippet(immeasurable_description))
             mMap!!.addMarker(MarkerOptions().position(atlas).title("ATLAS Experiment").snippet(ATLAS_description))
-
             mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet(auditorium_description))
         }
     }

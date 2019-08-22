@@ -48,9 +48,9 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
 //
 ////        val drawable = context.resources.getDrawable(resourceId, null)
 
-        var img
+        var img = 0
         when (title) {
-            "Globe"-> img = R.drawable.Globe
+            "Main Auditorium"-> img = R.drawable.auditorium
         }
         imageView.setImageResource(img)
 //        imageView.setImageResource()

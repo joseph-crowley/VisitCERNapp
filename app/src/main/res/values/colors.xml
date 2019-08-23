@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    //Quiz
+    <color name="correctGreen">#66CD00</color>
+    <color name="wrongRed">#ff0000</color>
+
     //Theme
     <color name="cernBlue">#0033A0</color>
     <color name="white">#FFFFFF</color>

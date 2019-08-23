@@ -3,6 +3,7 @@ package com.example.visitcern
 import androidx.fragment.app.FragmentActivity
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+
+const val EXTRA_LOCATION_QUESTION = "com.example.visitcern.LOCATION_QUESTION"
+const val EXTRA_LOCATION_ANSWER1 = "com.example.visitcern.LOCATION_ANSWER1"
+const val EXTRA_LOCATION_ANSWER2 = "com.example.visitcern.LOCATION_ANSWER2"
+const val EXTRA_LOCATION_ANSWER3 = "com.example.visitcern.LOCATION_ANSWER3"
+const val EXTRA_LOCATION_ANSWER4 = "com.example.visitcern.LOCATION_ANSWER4"
+const val EXTRA_LOCATION_CORRECT_ANSWER = "com.example.visitcern.LOCATION_CORRECT_ANSWER"
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
@@ -81,7 +89,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        Log.d("PERMISSION RESULT", "Permission result recieved")
+        Log.d("PERMISSION RESULT", "Permission result received")
         when (requestCode) {
             1 -> {
                 // If request is cancelled, the result arrays are empty.
@@ -99,9 +107,20 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
 
         val tag = marker.tag
         if (tag is LocationInfo) {
-            tag.Question
-            Toast.makeText(this, tag.Question, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, QuizActivity::class.java).apply {
+                putExtra(EXTRA_LOCATION_QUESTION, tag.question)
+                putExtra(EXTRA_LOCATION_ANSWER1, tag.answer1)
+                putExtra(EXTRA_LOCATION_ANSWER2, tag.answer2)
+                putExtra(EXTRA_LOCATION_ANSWER3, tag.answer3)
+                putExtra(EXTRA_LOCATION_ANSWER4, tag.answer4)
+                putExtra(EXTRA_LOCATION_CORRECT_ANSWER, tag.correct_answer)
+
+            }
+            startActivity(intent)
         }
+
+
+
 
     }
 
@@ -122,17 +141,17 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
             val auditorium_description = getResources().getString(R.string.auditorium_description)
 
             var globe = mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet(globe_description))
-            globe.tag = LocationInfo("?", "!", ".", ",", ";")
+            globe.tag = LocationInfo("?", "!", ".", ",", ";", ";")
             var r1 = mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet(r1_description))
-            r1.tag = LocationInfo("?", "!", ".", ",", ";")
+            r1.tag = LocationInfo("?", "!", ".", ",", ";", ";")
             var reception = mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet(reception_description))
-            reception.tag = LocationInfo("?", "!", ".", ",", ";")
+            reception.tag = LocationInfo("?", "!", ".", ",", ";", ";")
             var immeasurable = mMap!!.addMarker(MarkerOptions().position(wanderingTheImmeasurable).title("Wandering the Immeasurable").snippet(immeasurable_description))
-            immeasurable.tag = LocationInfo("?", "!", ".", ",", ";")
+            immeasurable.tag = LocationInfo("?", "!", ".", ",", ";", ";")
             var atlas = mMap!!.addMarker(MarkerOptions().position(atlas).title("ATLAS Experiment").snippet(ATLAS_description))
-            atlas.tag = LocationInfo("?", "!", ".", ",", ";")
+            atlas.tag = LocationInfo("?", "!", ".", ",", ";", ";")
             var auditorium = mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet(auditorium_description))
-            auditorium.tag = LocationInfo("?", "!", ".", ",", ";")
+            auditorium.tag = LocationInfo("?", "!", ".", ",", ";", ";")
         }
     }
 

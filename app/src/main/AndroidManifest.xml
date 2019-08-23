@@ -15,7 +15,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".QuizActivity">
+        <activity android:name=".QuizActivity"
+                android:parentActivityName=".MapsActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MapsActivity" />
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

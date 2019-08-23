@@ -50,6 +50,11 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
 
         var img = 0
         when (title) {
+            "Globe"-> img = R.drawable.globe
+            "Restaurant 1" -> img = R.drawable.r1
+            "CERN Reception" -> img = R.drawable.reception
+            "Wandering the Immeasurable" -> img = R.drawable.immeasurable
+            "ATLAS Experiment" -> img = R.drawable.atlas
             "Main Auditorium"-> img = R.drawable.auditorium
         }
         imageView.setImageResource(img)

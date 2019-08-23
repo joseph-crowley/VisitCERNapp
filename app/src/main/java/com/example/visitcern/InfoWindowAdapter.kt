@@ -49,7 +49,7 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
             "ATLAS Experiment" -> img = R.drawable.atlas
             "Main Auditorium"-> img = R.drawable.auditorium
         }
-        
+
         imageView.setImageResource(img)
         tvGir.text = title
         tvDetails.text = snippet

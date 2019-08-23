@@ -39,16 +39,8 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
         val tvGir = v.findViewById<View>(R.id.tvgir) as TextView
         val tvDetails = v.findViewById<View>(R.id.tvd) as TextView
         var imageView = v.findViewById<View>(R.id.image) as ImageView
-//        var tag = marker.tag
-//        var resourceId = 0
-//        if (tag is String) {
-//            resourceId = context.resources.getIdentifier("atlas.jpg", "drawable", context.packageName)
-//        }
-//        resourceId = context.resources.getIdentifier("atlas.jpg", "drawable", context.packageName)
-//
-////        val drawable = context.resources.getDrawable(resourceId, null)
-
         var img = 0
+
         when (title) {
             "Globe"-> img = R.drawable.globe
             "Restaurant 1" -> img = R.drawable.r1
@@ -57,9 +49,8 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
             "ATLAS Experiment" -> img = R.drawable.atlas
             "Main Auditorium"-> img = R.drawable.auditorium
         }
+        
         imageView.setImageResource(img)
-//        imageView.setImageResource()
-//        imageView.setImageResource(0)
         tvGir.text = title
         tvDetails.text = snippet
 

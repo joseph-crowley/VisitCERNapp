@@ -8,20 +8,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.util.Log
-import android.view.DragEvent
-import android.view.View
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
@@ -90,7 +86,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
             1 -> {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Log.d("PERMISSION RESULT", "Location permission granted")
+                    Log.d("PERMISSION RESULT", "LocationInfo permission granted")
                 } else {
                 }
                 return
@@ -99,7 +95,14 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
     }
 
     override fun onInfoWindowClick(marker: Marker) {
-        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+
+        val tag = marker.tag
+        if (tag is LocationInfo) {
+            tag.Question
+            Toast.makeText(this, tag.Question, Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun addMarkers() {
@@ -119,11 +122,17 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
             val auditorium_description = getResources().getString(R.string.auditorium_description)
 
             var globe = mMap!!.addMarker(MarkerOptions().position(globe).title("Globe").snippet(globe_description))
+            globe.tag = LocationInfo("?", "!", ".", ",", ";")
             var r1 = mMap!!.addMarker(MarkerOptions().position(r1).title("Restaurant 1").snippet(r1_description))
+            r1.tag = LocationInfo("?", "!", ".", ",", ";")
             var reception = mMap!!.addMarker(MarkerOptions().position(reception).title("CERN Reception").snippet(reception_description))
+            reception.tag = LocationInfo("?", "!", ".", ",", ";")
             var immeasurable = mMap!!.addMarker(MarkerOptions().position(wanderingTheImmeasurable).title("Wandering the Immeasurable").snippet(immeasurable_description))
+            immeasurable.tag = LocationInfo("?", "!", ".", ",", ";")
             var atlas = mMap!!.addMarker(MarkerOptions().position(atlas).title("ATLAS Experiment").snippet(ATLAS_description))
+            atlas.tag = LocationInfo("?", "!", ".", ",", ";")
             var auditorium = mMap!!.addMarker(MarkerOptions().position(auditorium).title("Main Auditorium").snippet(auditorium_description))
+            auditorium.tag = LocationInfo("?", "!", ".", ",", ";")
         }
     }
 

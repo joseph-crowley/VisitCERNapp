@@ -21,7 +21,7 @@ class VisitCernMapHandler {
     }
 
     fun locationChanged(newLocation: Location, follow: Boolean) {
-        Log.d("MAP HANDLER", "Location changed")
+        Log.d("MAP HANDLER", "LocationInfo changed")
         val newLatLng = LatLng(newLocation.latitude, newLocation.longitude)
         animateMarker(newLatLng)
         if (follow) follow(newLatLng)

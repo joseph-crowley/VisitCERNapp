@@ -31,7 +31,7 @@ class VisitCernLocationManager {
 
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location?) {
-            Log.d("LOCATION LISTENER", "Location changed")
+            Log.d("LOCATION LISTENER", "LocationInfo changed")
             if (location != null) {
                 mapHandler.locationChanged(location, following)
             }

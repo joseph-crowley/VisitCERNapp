@@ -34,7 +34,6 @@ class InfoWindowAdapter(context: Context) : GoogleMap.InfoWindowAdapter {
 
         val title: String? = marker.title
         val snippet: String? = marker.snippet
-//        val titleUi = v.findViewById<TextView>(R.id.title)
 
         val tvGir = v.findViewById<View>(R.id.tvgir) as TextView
         val tvDetails = v.findViewById<View>(R.id.tvd) as TextView

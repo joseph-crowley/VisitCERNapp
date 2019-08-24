@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">VisitCERN</string>
-    <string name="manual">Welcome to CERN! With this app you can wander around CERN an learn about the buildings
+    <string name="manual">Welcome to CERN! With this app you can wander around CERN, learn about the buildings,
         and have a look inside. While answering physics related questions you can gain points and compete with other visitors!
     </string>
     <string name = "globe_description">27 metres high and 40 metres in diameter, it\'s about the size of the dome of Saint Peter\'s in Rome! A unique visual landmark by day and by night, the Globe of Science and Innovation is a symbol of Planet Earth. It is CERN\'s outreach tool for its work in the fields of science, particle physics, leading-edge technologies and their applications in everyday life.\n
